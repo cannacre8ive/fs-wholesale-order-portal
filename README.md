@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flower Spectrum Wholesale Portal
 
-## Getting Started
+[![Latest deployment](https://img.shields.io/badge/Vercel-latest%20deployment-6AAFA0?logo=vercel&logoColor=white)](https://fs-wholesale-order-portal.vercel.app)
 
-First, run the development server:
+Production-structured Next.js application for an Ideal Cannabis B2B wholesale workflow. The experience supports buyer and seller perspectives, tiered wholesale pricing, access gating, fulfillment state, live demo inventory, account history, and purchase-unlocked promo assets.
+
+## Latest deployment
+
+**[Open the latest Vercel deployment](https://fs-wholesale-order-portal.vercel.app)**
+
+The stable deployment link above is kept in this README so the GitHub repository always points to the current Vercel build. Unique deployment URLs are also recorded in GitHub deployments.
+
+## Screenshots
+
+![Wholesale menu](docs/screenshots/wholesale-menu.png)
+
+![Buyer product detail](docs/screenshots/product-detail.png)
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Quality checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run check
+```
 
-## Learn More
+This runs linting, TypeScript, unit tests, and a production build.
 
-To learn more about Next.js, take a look at the following resources:
+## Architecture
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/app` — App Router entry point, metadata, and global design system
+- `src/components` — focused UI and workflow components
+- `src/context` — shared, browser-persisted demo state
+- `src/lib` — domain types, fixtures, pricing behavior, and tests
+- `docs/source` — archived original single-file prototype
+- `docs/screenshots` — current deployment captures
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+See [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) for personas, boundaries, production integration seams, and product safeguards.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The repository is connected to Vercel. Every Git push creates a deployment; the `main` branch updates the stable URL linked above.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Important demo limitations
+
+The product and account data are illustrative. Only the Kush Mints chemistry panel is labeled COA-verified; other classifications remain visibly marked as simulated. This app does not make medical or effects claims and does not collect payment.
