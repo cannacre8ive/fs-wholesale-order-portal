@@ -4,6 +4,8 @@
 
 Flower Spectrum is a B2B wholesale flower portal for Ideal Cannabis. It gives licensed retail buyers a chemistry-first way to browse current lots and gives the seller a compact workspace for pricing access, inventory, and fulfillment.
 
+The public product surface includes a landing page, managed account creation and Google sign-in through Clerk, and guided onboarding for organization details, inventory sources, product photography, and lab documents.
+
 ## Audiences
 
 - Approved retail buyer: sees tier pricing, requests delivery, reviews account history, and retrieves retail-ready assets.
@@ -12,14 +14,17 @@ Flower Spectrum is a B2B wholesale flower portal for Ideal Cannabis. It gives li
 
 ## Current scope
 
-This repository is a polished, stateful product demo. Data is seeded locally and mutations persist in browser storage. It does not process payments, authenticate real users, upload files, or write to a production database.
+This repository is a polished, stateful product preview. Clerk authenticates real users when configured. Catalog data is seeded locally, onboarding metadata persists in browser storage, and selected files are staged in the browser. It does not process payments, persist uploaded binaries, or write product data to a production database.
 
 ## Production integration seams
 
 - Replace `src/lib/data.ts` with repository functions backed by the chosen database.
-- Replace the account-mode demo switch with authenticated roles and server-side authorization.
+- Promote the Clerk instance to production and configure production Google OAuth credentials.
+- Map Clerk organizations and metadata to authenticated buyer/seller roles.
 - Move order and access-request mutations to Server Actions or API route handlers.
 - Store product photography in managed object storage and generate signed upload URLs.
+- Persist onboarding data and file-to-lot relationships in the product database.
+- Send stored lab-document references to the typed `ClassifierInput` contract when the Chemovar Classifier is available.
 - Add transactional email, audit history, license verification, and payment/terms workflows.
 
 ## Product safeguards

@@ -1,5 +1,5 @@
-import { PortalApp } from "@/components/portal-app";
+import { LandingPage } from "@/components/landing-page";
 
-export default function Home() {
-  return <PortalApp />;
+export default function HomePage() {
+  return <LandingPage />;
 }

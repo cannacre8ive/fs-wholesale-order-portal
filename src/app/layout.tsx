@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Newsreader } from "next/font/google";
+import { AuthProvider } from "@/components/auth-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,8 +21,8 @@ const newsreader = Newsreader({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fs-wholesale-order-portal.vercel.app"),
-  title: "Flower Spectrum · Wholesale Portal",
-  description: "A chemistry-first wholesale flower marketplace for qualified retailers.",
+  title: { default: "Flower Spectrum · Wholesale Intelligence", template: "%s · Flower Spectrum" },
+  description: "The wholesale intelligence layer for cannabis cultivators, brands, and retail buyers.",
   openGraph: { title: "Flower Spectrum · Wholesale Portal", description: "Wholesale flower, sold by its aroma.", type: "website" },
   robots: { index: true, follow: true },
 };
@@ -36,7 +37,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col"><AuthProvider>{children}</AuthProvider></body>
     </html>
   );
 }
